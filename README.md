@@ -2,15 +2,10 @@
 
 A new Flutter project.
 
-## Getting Started
+In making the “Airplane” application, we will learn from the Slicing design stage, implementing the BLoC (with Cubit) architecture to activating Null Safety on Flutter. BLoC (with Cubit) can simplify the state management process so that complex code becomes easier to test and use. Meanwhile, Null Safety can minimize errors on null (no data) so that it can increase application productivity. The combination of implementing good architecture and Null Safety can prevent crashes so that users can enjoy playing the application.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Key Points:
+Deploy apps to Play Store
+Building apps with Null Safety
+Building applications with BLoC State Management (with Pinch)
+Creating Slicing UI from Figma to app
