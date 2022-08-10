@@ -1,4 +1,5 @@
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/widgets/custom_bottom.dart';
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -170,27 +171,11 @@ class SignUpPage extends StatelessWidget {
       }
 
       Widget submitButton() {
-        return Container(
-          width: double.infinity,
-          height: 55,
-          child: TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/bonus');
-            },
-            style: TextButton.styleFrom(
-              backgroundColor: kPrimaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(defaultRadius),
-              ),
-            ),
-            child: Text(
-              'Get Started',
-              style: whiteTextStyle.copyWith(
-                fontSize: 18,
-                fontWeight: medium,
-              ),
-            ),
-          ),
+        return CustomBottom(
+          title: 'Get Started',
+          onPressed: () {
+            Navigator.pushNamed(context, '/bonus');
+          },
         );
       }
 
