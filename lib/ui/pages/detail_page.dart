@@ -1,4 +1,5 @@
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/widgets/custom_bottom.dart';
 import 'package:airplane/ui/widgets/interest_item.dart';
 import 'package:airplane/ui/widgets/photo_item.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class DetailPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            //NOTE: EMBLEM//
+            // NOTE: EMBLEM//
             Container(
               width: 108,
               height: 24,
@@ -65,7 +66,7 @@ class DetailPage extends StatelessWidget {
               ),
             ),
 
-            //NOTE: TITLE//
+            // NOTE: TITLE//
             Container(
               margin: EdgeInsets.only(top: 256),
               child: Row(
@@ -120,7 +121,7 @@ class DetailPage extends StatelessWidget {
               ),
             ),
 
-            //NOTE: DESCRIPTION//
+            // NOTE: DESCRIPTION//
             Container(
               width: double.infinity,
               margin: EdgeInsets.only(top: 30),
@@ -135,7 +136,7 @@ class DetailPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  //NOTE: ABOUT//
+                  // NOTE: ABOUT//
                   Text(
                     'About',
                     style: blackTextStyle.copyWith(
@@ -153,7 +154,7 @@ class DetailPage extends StatelessWidget {
                     ),
                   ),
 
-                  //NOTE: PHOTOS//
+                  // NOTE: PHOTOS//
                   SizedBox(
                     height: 20,
                   ),
@@ -167,7 +168,7 @@ class DetailPage extends StatelessWidget {
                   SizedBox(
                     height: 6,
                   ),
-                  //NOTE: Widget photo_item.dart
+                  // NOTE: Widget photo_item.dart
                   Row(
                     children: [
                       PhotoItem(
@@ -182,7 +183,7 @@ class DetailPage extends StatelessWidget {
                     ],
                   ),
 
-                  //NOTE: INTERESTS
+                  // NOTE: INTERESTS
                   SizedBox(
                     height: 20,
                   ),
@@ -196,7 +197,7 @@ class DetailPage extends StatelessWidget {
                   SizedBox(
                     height: 6,
                   ),
-                  //NOTE: Widget interest_item.dart//
+                  // NOTE: Widget interest_item.dart//
                   Row(
                     children: [
                       InterestItem(
@@ -223,6 +224,46 @@ class DetailPage extends StatelessWidget {
                 ],
               ),
             ),
+
+            // NOTE: PRICE & BOOK BOTTOM
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(vertical: 30),
+              child: Row(
+                children: [
+                  // NOTE: PRICE
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'IDR 2.500.000',
+                          style: blackTextStyle.copyWith(
+                            fontSize: 18,
+                            fontWeight: medium,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'per orang',
+                          style: greyTextStyle.copyWith(
+                            fontWeight: light,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // NOTE: BOOK BUTTON
+                  CustomBottom(
+                    title: 'Book Now',
+                    onPressed: () {},
+                    width: 170,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       );
@@ -230,12 +271,14 @@ class DetailPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      body: Stack(
-        children: [
-          backgroundImage(),
-          customShadow(),
-          content(),
-        ],
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            backgroundImage(),
+            customShadow(),
+            content(),
+          ],
+        ),
       ),
     );
   }
