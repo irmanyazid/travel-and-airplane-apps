@@ -1,4 +1,5 @@
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/widgets/seat_item.dart';
 import 'package:flutter/material.dart';
 
 class ChooseSeatPage extends StatelessWidget {
@@ -102,8 +103,11 @@ class ChooseSeatPage extends StatelessWidget {
           children: [
             // NOTE: SEAT INDICATORS
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(
+                Container(
+                  width: 48,
+                  height: 48,
                   child: Center(
                     child: Text(
                       'A',
@@ -113,7 +117,9 @@ class ChooseSeatPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+                Container(
+                  width: 48,
+                  height: 48,
                   child: Center(
                     child: Text(
                       'B',
@@ -123,7 +129,9 @@ class ChooseSeatPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+                Container(
+                  width: 48,
+                  height: 48,
                   child: Center(
                     child: Text(
                       '',
@@ -133,7 +141,9 @@ class ChooseSeatPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+                Container(
+                  width: 48,
+                  height: 48,
                   child: Center(
                     child: Text(
                       'C',
@@ -143,7 +153,9 @@ class ChooseSeatPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+                Container(
+                  width: 48,
+                  height: 48,
                   child: Center(
                     child: Text(
                       'D',
@@ -154,6 +166,32 @@ class ChooseSeatPage extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+
+            // NOTE: SEAT 1
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SeatItem(),
+                  SeatItem(),
+                  Container(
+                    width: 48,
+                    height: 48,
+                    child: Center(
+                      child: Text(
+                        '1',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SeatItem(),
+                  SeatItem(),
+                ],
+              ),
             ),
           ],
         ),
