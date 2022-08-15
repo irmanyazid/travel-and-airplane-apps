@@ -69,6 +69,90 @@ class CheckoutPage extends StatelessWidget {
       );
     }
 
+    Widget bookingDetails() {
+      return Container(
+        margin: EdgeInsets.only(top: 30),
+        padding: EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 30,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+          color: kWhiteColor,
+        ),
+        child: Column(
+          children: [
+            //NOTE: DESTINATION TILE //
+            Row(
+              children: [
+                Container(
+                  width: 70,
+                  height: 70,
+                  margin: EdgeInsets.only(right: 16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        'assets/image_destination1.png',
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Lake Ciliwung',
+                        style: blackTextStyle.copyWith(
+                          fontSize: 18,
+                          fontWeight: medium,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        'Tangerang',
+                        style: greyTextStyle.copyWith(
+                          fontWeight: light,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 20,
+                      height: 20,
+                      margin: EdgeInsets.only(right: 2),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'assets/icon_star.png',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text(
+                      '4.8',
+                      style: blackTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: ListView(
@@ -77,6 +161,7 @@ class CheckoutPage extends StatelessWidget {
         ),
         children: [
           route(),
+          bookingDetails(),
         ],
       ),
     );
