@@ -1,4 +1,5 @@
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/widgets/custom_bottom.dart';
 import 'package:airplane/ui/widgets/seat_item.dart';
 import 'package:flutter/material.dart';
 
@@ -337,7 +338,64 @@ class ChooseSeatPage extends StatelessWidget {
                 ],
               ),
             ),
+
+            //NOTE: YOUR SEAT
+            Container(
+              margin: EdgeInsets.only(top: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Your Seat',
+                    style: greyTextStyle.copyWith(
+                      fontWeight: light,
+                    ),
+                  ),
+                  Text(
+                    'A3, B3',
+                    style: blackTextStyle.copyWith(
+                        fontSize: 16, fontWeight: medium),
+                  ),
+                ],
+              ),
+            ),
+
+            //NOTE: TOTAL
+            Container(
+              margin: EdgeInsets.only(
+                top: 16,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Total',
+                    style: greyTextStyle.copyWith(
+                      fontWeight: light,
+                    ),
+                  ),
+                  Text(
+                    'IDR 540.000.000',
+                    style: purpleTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
+        ),
+      );
+    }
+
+    Widget checkoutButton() {
+      return CustomBottom(
+        title: 'Continue to Checkout',
+        onPressed: () {},
+        margin: EdgeInsets.only(
+          top: 30,
+          bottom: 46,
         ),
       );
     }
@@ -352,6 +410,7 @@ class ChooseSeatPage extends StatelessWidget {
           title(),
           seatStatus(),
           selectSeat(),
+          checkoutButton(),
         ],
       ),
     );
