@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:airplane/shared/theme.dart';
-import 'package:airplane/ui/pages/get_started_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -14,17 +14,18 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    // ignore: todo
-    //TODO: implement initState
     Timer(
       Duration(seconds: 3),
       () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => GetStartedPage(),
-          ),
-        );
+        User? user = FirebaseAuth.instance.currentUser;
+
+        if (user == null) {
+          Navigator.pushNamedAndRemoveUntil(
+              context, '/get-started', (route) => false);
+        } else {
+          print(user.email);
+          Navigator.pushNamedAndRemoveUntil(context, '/main', (route) => false);
+        }
       },
     );
     super.initState();
