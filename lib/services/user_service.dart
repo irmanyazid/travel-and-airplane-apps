@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class UserService {
   CollectionReference _userReference =
       FirebaseFirestore.instance.collection('users');
-
+  //Method
   Future<void> setUser(UserModel user) async {
     try {
       _userReference.doc(user.id).set({
