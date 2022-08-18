@@ -5,14 +5,14 @@ import 'package:airplane/ui/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignUpPage extends StatefulWidget {
-  SignUpPage({Key? key}) : super(key: key);
+class SignInPage extends StatefulWidget {
+  SignInPage({Key? key}) : super(key: key);
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<SignInPage> createState() => _SignUpPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignUpPageState extends State<SignInPage> {
   final TextEditingController nameController = TextEditingController(text: '');
 
   final TextEditingController emailController = TextEditingController(text: '');
@@ -30,7 +30,7 @@ class _SignUpPageState extends State<SignUpPage> {
           top: 30,
         ),
         child: Text(
-          'Join us and get\nyour next journey',
+          'Sign In with your \nexisting account',
           style: blackTextStyle.copyWith(
             fontSize: 24,
             fontWeight: semiBold,
@@ -40,14 +40,6 @@ class _SignUpPageState extends State<SignUpPage> {
     }
 
     Widget inputSection() {
-      Widget nameInput() {
-        return CustomTextFormField(
-          title: 'Full Name',
-          hintText: 'Your Full Name',
-          controller: nameController,
-        );
-      }
-
       Widget emailInput() {
         return CustomTextFormField(
           title: 'Email Address',
@@ -62,14 +54,6 @@ class _SignUpPageState extends State<SignUpPage> {
           hintText: 'Your Password',
           obscureText: true,
           controller: passwordController,
-        );
-      }
-
-      Widget hobbyInput() {
-        return CustomTextFormField(
-          title: 'Hobby',
-          hintText: 'Your Hobby',
-          controller: hobbyController,
         );
       }
 
@@ -96,7 +80,7 @@ class _SignUpPageState extends State<SignUpPage> {
             }
 
             return CustomBottom(
-              title: 'Get Started',
+              title: 'Sign In',
               onPressed: () {
                 print(passwordController.text);
 
@@ -123,20 +107,18 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
         child: Column(
           children: [
-            nameInput(),
             emailInput(),
             passwordInput(),
-            hobbyInput(),
             submitButton(),
           ],
         ),
       );
     }
 
-    Widget signInButton() {
+    Widget tacButton() {
       return GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, '/sign-in');
+          Navigator.pop(context);
         },
         child: Container(
           alignment: Alignment.center,
@@ -145,7 +127,7 @@ class _SignUpPageState extends State<SignUpPage> {
             bottom: 73,
           ),
           child: Text(
-            'Have an account? Sign In',
+            'Don\'t have an account? Sign Up',
             style: greyTextStyle.copyWith(
               fontSize: 16,
               fontWeight: light,
@@ -166,7 +148,7 @@ class _SignUpPageState extends State<SignUpPage> {
           children: [
             title(),
             inputSection(),
-            signInButton(),
+            tacButton(),
           ],
         ),
       ),
