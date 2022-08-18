@@ -8,6 +8,25 @@ class AuthService {
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   //Method
+
+  Future<UserModel> signIn({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      //NOTE: FIREBASE AUTHENTICATION
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      UserModel user =
+          await UserService().getUserById(userCredential.user!.uid);
+      return user;
+    } catch (e) {
+      throw e;
+    }
+  }
+
   Future<UserModel> signUp(
       {required String email,
       required String password,
