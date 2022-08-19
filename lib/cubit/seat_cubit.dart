@@ -5,9 +5,21 @@ class SeatCubit extends Cubit<List<String>> {
 
   //METHOD
   void selectSeat(String id) {
-    print('prev state: $state');
-    state.add(id);
-    print('new state: $state');
+    if (!isSelected(id)) {
+      state.add(id);
+    } else {
+      state.remove(id);
+    }
+    print(state);
     emit(state);
+  }
+
+  bool isSelected(String id) {
+    int index = state.indexOf(id);
+    if (index == -1) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }
