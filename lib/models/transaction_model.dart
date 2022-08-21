@@ -33,7 +33,7 @@ class TransactionModel extends Equatable {
         id: id,
         amountOfTraveler: json['amountOfTraveler'],
         selectedSeats: json['selectedSeats'],
-        insurance: json['isurance'],
+        insurance: json['insurance'],
         refundable: json['refundable'],
         vat: json['vat'],
         price: json['price'],
